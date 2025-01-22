@@ -3,8 +3,8 @@ import consultQuery from "../controllers/queryConsult.js";
 
 const Router = express.Router();
 
-Router.get("/destaques", (_, res) => {
-  const query = "SELECT * FROM imoveis WHERE em_destaque = TRUE";
+Router.get("/newly", (_, res) => {
+  const query = "SELECT * FROM imoveis WHERE recem_adicionados = TRUE";
   consultQuery(query, res);
 });
 
