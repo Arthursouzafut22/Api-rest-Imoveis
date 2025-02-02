@@ -8,6 +8,7 @@ import routerMain from "./routes/routerMain.js";
 import routerHighlights from "./routes/routerHighlights.js";
 import routerNewlyAdded from "./routes/routerNewlyAdded.js";
 import routerCreateProperty from "./routes/routerCreateProperty.js";
+import routerMyproperty from "./routes/routerMyproperty.js";
 
 dotenv.config();
 const app = express();
@@ -22,8 +23,8 @@ app.use("/images", express.static(path.resolve("imgs/imgsImoveis")));
 app.use(routerMain);
 app.use(routerNewlyAdded);
 app.use(routerHighlights);
+app.use(routerMyproperty);
 app.use(routerTypes);
 app.use(routerCreateProperty);
-
 
 app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
