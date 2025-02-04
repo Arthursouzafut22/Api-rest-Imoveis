@@ -10,6 +10,7 @@ import routerNewlyAdded from "./routes/routerNewlyAdded.js";
 import routerCreateProperty from "./routes/routerCreateProperty.js";
 import routerMyproperty from "./routes/routerMyproperty.js";
 import routerDeleteProperty from "./routes/routerDeleteProperty.js";
+import routerUpdateProperty from "./routes/routerUpdateProperty.js";
 
 dotenv.config();
 const app = express();
@@ -28,7 +29,6 @@ app.use(routerMyproperty);
 app.use(routerTypes);
 app.use(routerCreateProperty);
 app.use(routerDeleteProperty);
-
-app.put("edit/:id", (req, res) => {});
+app.use(routerUpdateProperty);
 
 app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
