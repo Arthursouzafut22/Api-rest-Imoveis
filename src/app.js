@@ -11,6 +11,7 @@ import routerCreateProperty from "./routes/routerCreateProperty.js";
 import routerMyproperty from "./routes/routerMyproperty.js";
 import routerDeleteProperty from "./routes/routerDeleteProperty.js";
 import routerUpdateProperty from "./routes/routerUpdateProperty.js";
+import routerPagination from "./routes/routerPagination.js";
 
 dotenv.config();
 const app = express();
@@ -24,6 +25,7 @@ app.use(cors());
 app.use("/images", express.static(path.resolve("imgs/imgsImoveis")));
 app.use(routerMain);
 app.use(routerNewlyAdded);
+app.use(routerPagination);
 app.use(routerHighlights);
 app.use(routerMyproperty);
 app.use(routerTypes);
