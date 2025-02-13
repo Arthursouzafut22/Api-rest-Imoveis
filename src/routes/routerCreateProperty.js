@@ -7,6 +7,7 @@ const Router = express.Router();
 Router.post("/cadastrar", (req, res) => {
   const bodyData = JSON.parse(req.body.data);
 
+  const usuario_uid = bodyData.uid;
   const nome = bodyData.nome;
   const tipo = bodyData.tipo;
   const camas = bodyData.quartos;
@@ -35,7 +36,7 @@ Router.post("/cadastrar", (req, res) => {
   const imgsName = files.map((name) => name.name);
 
   uploadeFiles(req, res, files, () => {
-    const query = `INSERT INTO imoveis (nome, tipo, camas, banheiros, metros_quadrados, imagens, mes, localizacao, diaria, semanal, descricao, comodidades, em_destaque, recem_adicionados, meus_imoveis,rua,numero,bairro,estado, cidade,cep,nome_proprietario,celular_proprietario,email  )
+    const query = `INSERT INTO imoveis (nome, tipo, camas, banheiros, metros_quadrados, imagens, mes, localizacao, diaria, semanal, descricao, comodidades, em_destaque, recem_adicionados, meus_imoveis,rua,numero,bairro,estado, cidade,cep,nome_proprietario,celular_proprietario,email,usuario_uid  )
         VALUES 
         ('${nome}', '${tipo}', ${parseInt(camas)}, ${parseInt(
       banheiros
@@ -47,7 +48,9 @@ Router.post("/cadastrar", (req, res) => {
       comodidades
     )}', FALSE, FALSE, TRUE, '${rua}', ${parseInt(
       numero
-    )},'${bairro}','${estados}','${cidade}','${cep}','${propietario}','${celular}','${email}')`;
+    )},'${bairro}','${estados}','${cidade}','${cep}','${propietario}','${celular}','${email}','${String(
+      usuario_uid
+    )}')`;
 
     queryCreate(query, res);
   });
