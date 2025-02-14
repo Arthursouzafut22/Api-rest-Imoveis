@@ -14,6 +14,8 @@ import routerUpdateProperty from "./routes/routerUpdateProperty.js";
 import routerPagination from "./routes/routerPagination.js";
 import routerCreateMessages from "./routes/routerCreateMessages.js";
 import routerGetMessages from "./routes/routergetMessages.js";
+import routerUpdateMessage from "./routes/routerUpdateMessage.js";
+import routerDeleteMessages from "./routes/routerDeleteMessages.js";
 
 dotenv.config();
 const app = express();
@@ -36,5 +38,7 @@ app.use(routerDeleteProperty);
 app.use(routerUpdateProperty);
 app.use(routerCreateMessages);
 app.use(routerGetMessages);
+app.use(routerUpdateMessage);
+app.use(routerDeleteMessages);
 
 app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));

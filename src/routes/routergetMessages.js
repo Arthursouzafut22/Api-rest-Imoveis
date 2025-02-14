@@ -19,6 +19,7 @@ Router.get("/messages/:uid", async (req, res) => {
           inter.email,
           inter.celular,
           inter.mensagem,
+          inter.lida,
           inter.data_interesse
         FROM interesse_imovel inter
         JOIN imoveis i ON inter.imovel_id = i.id
